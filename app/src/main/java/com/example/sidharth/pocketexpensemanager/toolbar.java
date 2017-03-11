@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 
 /**
@@ -31,5 +32,11 @@ public class toolbar extends AppCompatActivity{
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
+    public void Date(View view) {
+        DateDialogFragment dialog = new DateDialogFragment();
+        android.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
+        dialog.show(ft, "asd");
+    }
+
 
 }

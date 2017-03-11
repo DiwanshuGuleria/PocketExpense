@@ -2,21 +2,22 @@ package com.example.sidharth.pocketexpensemanager;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.support.v4.app.DialogFragment;
+import android.app.DialogFragment;
 import java.util.Calendar;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * Created by root on 8/3/17.
  */
 
 public class DateDialogFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener{
-    EditText dateText;
+    //EditText dateText;
     public  DateDialogFragment(){
-        dateText = (EditText)getView();
+       // dateText = (EditText)getView();
 
     }
 
@@ -32,7 +33,7 @@ public class DateDialogFragment extends DialogFragment implements DatePickerDial
 
     public void onDateSet(DatePicker view,int year,int month,int day){
         String date=day+"/"+month+"/"+year;
-        dateText.setText(date);
+        Toast.makeText(getActivity(),date,Toast.LENGTH_LONG).show();
     }
 
 }
