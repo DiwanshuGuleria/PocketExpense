@@ -6,22 +6,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import java.util.Calendar;
-import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.view.Menu;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.support.v4.app.FragmentTransaction;
+import android.widget.Spinner;
+
+import java.util.ArrayList;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class Expense extends Fragment {
+
 
     public Expense() {
         // Required empty public constructor
@@ -32,30 +26,22 @@ public class Expense extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_expense, container, false);
+        View itemView=inflater.inflate(R.layout.fragment_expense, container, false);
+        ArrayList<Category_Data> list=new ArrayList<>();
+        list.add(new Category_Data("Books",R.drawable.books));
+        list.add(new Category_Data("Clothes", R.drawable.clothes));
+        list.add(new Category_Data("Entertainment", R.drawable.entertainment));
+        list.add(new Category_Data("Fuel", R.drawable.fuel));
+        list.add(new Category_Data("General", R.drawable.general));
+        list.add(new Category_Data("Gift", R.drawable.gift));
+        list.add(new Category_Data("Holidays", R.drawable.holidays));
+        list.add(new Category_Data("Shopping", R.drawable.shopping));
+        list.add(new Category_Data("Transport", R.drawable.transport));
+        Spinner spin = (Spinner)itemView.findViewById(R.id.cat_spinner);
+        Category_Adapter adapter = new Category_Adapter(getActivity(),R.layout.custom_category_list,R.id.category,list);
+        spin.setAdapter(adapter);
+        return itemView;
     }
 
 
-    }
-   /*public void onStart(){
-        super.onStart();
-
-        dateText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    DateDialogFragment dialog= new DateDialogFragment();
-                    android.support.v4.app.FragmentTransaction ft =  getFragmentManager().beginTransaction();
-                    dialog.show(ft,"asd");
-
-                }
-            }
-        });*/
-
-
-
-
-
-
-
-
+}
