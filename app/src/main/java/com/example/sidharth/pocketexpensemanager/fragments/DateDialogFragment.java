@@ -1,0 +1,45 @@
+package com.example.sidharth.pocketexpensemanager.fragments;
+
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.DatePicker;
+import android.widget.Toast;
+
+import java.util.Calendar;
+
+/**
+ * Created by root on 8/3/17.
+ */
+
+public class DateDialogFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener{
+    //EditText dateText;
+    public DateDialogFragment(){
+       // dateText = (EditText)getView();
+
+    }
+
+
+
+    public Dialog onCreateDialog(Bundle savedInstanceState){
+        final Calendar c =  Calendar.getInstance();
+        int year=c.get(Calendar.YEAR);
+        int month=c.get(Calendar.MONTH);
+        int day=c.get(Calendar.DAY_OF_MONTH);
+        return new DatePickerDialog(getActivity(),this,year,month,day);
+    }
+
+    public void onDateSet(DatePicker view,int year,int month,int day){
+        String date=day+"/"+month+"/"+year;
+        Toast.makeText(getActivity(),date,Toast.LENGTH_LONG).show();
+        /*Bundle date1 = new Bundle();
+        date1.putString("abc",date);
+        Intent a = new Intent(getActivity(),expense.class);
+        a.putExtras(date1);
+        startActivity(a);*/
+
+    }
+
+}

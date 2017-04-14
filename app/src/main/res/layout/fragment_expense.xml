@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -24,16 +24,32 @@
         app:srcCompat="@drawable/rupee"
         android:id="@+id/imageView" />
 
-    <EditText
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginLeft="230sp"
+        android:layout_marginTop="300sp"
+        android:text="Add" />
+
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="76dp"
+        android:layout_marginLeft="50sp"
+        android:layout_marginTop="300sp"
+        android:scaleType="fitCenter"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:id="@+id/image_icon"
+        android:visibility="visible"
+        android:onClick="onImage"
+        app:srcCompat="@drawable/ic_camera" />
+
+    <DatePicker
+        android:id="@+id/datePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:layout_marginLeft="180sp"
-        android:layout_marginTop="45sp"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:textSize="18sp"
-        android:hint="Add money amount.." />
+        android:visibility="gone" />
 
     <EditText
         android:layout_width="match_parent"
@@ -47,41 +63,17 @@
         android:hint="Write a description here.."
         android:gravity="top"/>
 
-    <Button
-        android:text="Add"
-        android:layout_marginLeft="230sp"
-        android:layout_marginTop="300sp"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:id="@+id/button2" />
-
-    <ImageButton
-        android:layout_width="80dp"
-        android:layout_height="76dp"
-        android:layout_marginLeft="50sp"
-        android:layout_marginTop="300sp"
-        android:scaleType="fitCenter"
-        android:layout_weight="1"
-        android:adjustViewBounds="true"
-        app:srcCompat="@drawable/camera_icon"
-        android:id="@+id/image_icon"
-        android:visibility="visible"
-        android:onClick="onImage" />
-
-    <DatePicker
-        android:id="@+id/datePicker"
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone" />
+        android:inputType="textPersonName"
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="230dp"
-        android:onClick="Date"
-        android:text="Date" />
+        android:ems="10"
+        android:id="@+id/editText"
+        android:textSize="18sp"
+        android:hint="Add money amount.."
+        android:layout_alignTop="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView" />
     <TextView
         android:text="Category: "
         android:layout_marginLeft="5sp"
@@ -99,4 +91,15 @@
         >
     </Spinner>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/image_icon"
+        android:layout_below="@+id/image_icon"
+        android:layout_marginTop="33dp"
+        android:text="TextView"
+        android:layout_alignEnd="@+id/button2" />
+
+
+</RelativeLayout>
